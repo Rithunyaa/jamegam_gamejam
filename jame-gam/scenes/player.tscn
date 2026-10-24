@@ -15,3 +15,4 @@ texture = SubResource("PlaceholderTexture2D_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2075189410]
 shape = SubResource("RectangleShape2D_qhqgy")
+debug_color = Color(1, 0.011764706, 0, 0.41960785)

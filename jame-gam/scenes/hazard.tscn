@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bm4w67p7sd2mf"]
+
+[ext_resource type="Script" uid="uid://cd6mbjs2dmrow" path="res://scripts/hazard.gd" id="1_rxmjj"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ivx7b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxmjj"]
+
+[node name="Hazard" type="Area2D" unique_id=1007481497]
+script = ExtResource("1_rxmjj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1518173478]
+scale = Vector2(20, 20)
+texture = SubResource("PlaceholderTexture2D_ivx7b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=186920738]
+shape = SubResource("RectangleShape2D_rxmjj")
+debug_color = Color(0, 0, 1, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
