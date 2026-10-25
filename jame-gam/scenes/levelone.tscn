@@ -2,6 +2,14 @@
 
 [ext_resource type="Script" uid="uid://coyxunt15hco7" path="res://scripts/main.gd" id="1_0puxg"]
 [ext_resource type="PackedScene" uid="uid://c4ec5kqk0qeil" path="res://scenes/player.tscn" id="1_1deg0"]
+[ext_resource type="Script" uid="uid://daoo6kqn641ek" path="res://scripts/game_over_ui.gd" id="3_b8uj7"]
+[ext_resource type="FontFile" uid="uid://dwgmrujiub8vb" path="res://assets/augiepixel.ttf" id="4_asbcj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_asbcj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k3crt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l0ncr"]
 
 [node name="Node2D" type="Node2D" unique_id=869852116]
 script = ExtResource("1_0puxg")
@@ -11,3 +19,62 @@ position = Vector2(647, 666)
 
 [node name="Timer" type="Timer" parent="." unique_id=1171251173]
 autostart = true
+
+[node name="GameOverUI" type="CanvasLayer" parent="." unique_id=1863000485]
+script = ExtResource("3_b8uj7")
+
+[node name="ColorRect" type="ColorRect" parent="GameOverUI" unique_id=1018493982]
+offset_left = -22.0
+offset_top = -30.0
+offset_right = 1306.0
+offset_bottom = 753.0
+color = Color(0.92099476, 0.9209946, 0.9209946, 0.95686275)
+
+[node name="MenuContainer" type="Control" parent="GameOverUI" unique_id=880653679]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = 1278.0
+offset_bottom = 721.0
+
+[node name="MessageLabel" type="RichTextLabel" parent="GameOverUI/MenuContainer" unique_id=1720908399]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 61.0
+offset_right = 1280.0
+offset_bottom = 619.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_asbcj")
+theme_override_font_sizes/normal_font_size = 30
+text = "sssssssss"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewRecordLabel" type="RichTextLabel" parent="GameOverUI/MenuContainer" unique_id=1865955352]
+layout_mode = 0
+offset_top = 26.0
+offset_right = 1280.0
+offset_bottom = 565.0
+theme_override_colors/default_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+theme_override_fonts/normal_font = ExtResource("4_asbcj")
+theme_override_font_sizes/normal_font_size = 30
+text = "ssssssssss"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TryAgainButton" type="Button" parent="GameOverUI/MenuContainer" unique_id=239906788]
+layout_mode = 0
+offset_left = 578.0
+offset_top = 413.0
+offset_right = 706.0
+offset_bottom = 454.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.78431374, 0.007843138, 0.007843138, 1)
+theme_override_colors/font_hover_color = Color(0.78431374, 0.007843138, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("4_asbcj")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_asbcj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_k3crt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l0ncr")
+text = "try again"

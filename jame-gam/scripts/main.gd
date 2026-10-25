@@ -2,27 +2,37 @@ extends Node2D
 
 var hazard_scene = preload("res://scenes/hazard.tscn")
 @onready var timer: Timer = $Timer
+@onready var game_over_ui: CanvasLayer = $GameOverUI # Make sure node name matches
 
 var survival_time: float = 0.0
+var is_game_over: bool = false
 
 func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
 
 func _process(delta: float) -> void:
+	if is_game_over:
+		return
+		
 	survival_time += delta
-	
-	# Gradually increase spawn rate as time goes on
 	timer.wait_time = max(0.3, 1.2 - (survival_time * 0.02))
 
 func _on_timer_timeout() -> void:
 	var hazard = hazard_scene.instantiate()
-	
-	# Scale hazard speed up over time
 	var speed_multiplier = 1.0 + (survival_time * 0.04)
 	hazard.fall_speed *= speed_multiplier
 	
-	# Pick a random X position across the full 1280 width (between 60 and 1220)
 	var random_x = randf_range(60.0, 1220.0)
-	hazard.position = Vector2(random_x, -50) # Spawn just above the screen
-	
+	hazard.position = Vector2(random_x, -50)
 	add_child(hazard)
+
+func trigger_game_over() -> void:
+	if is_game_over:
+		return
+	is_game_over = true
+	
+	# Stop the spawner timer
+	timer.stop()
+	
+	# Trigger the fade screen and score UI
+	game_over_ui.trigger_game_over(survival_time)

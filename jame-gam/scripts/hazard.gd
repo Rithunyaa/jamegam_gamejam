@@ -11,6 +11,10 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		print("Squashed!")
-		# Safely reload the scene after the physics step finishes
-		get_tree().call_deferred("reload_current_scene")
+		# Find the Main node in the scene tree and call game over
+		var main_node = get_tree().current_scene
+		if main_node.has_method("trigger_game_over"):
+			main_node.trigger_game_over()
+		
+		# Remove the hazard safely
+		queue_free()

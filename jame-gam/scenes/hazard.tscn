@@ -5,12 +5,14 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ivx7b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxmjj"]
+size = Vector2(28, 27)
 
 [node name="Hazard" type="Area2D" unique_id=1007481497]
 script = ExtResource("1_rxmjj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1518173478]
-scale = Vector2(20, 20)
+position = Vector2(1.4305115e-06, 0.49999976)
+scale = Vector2(28, 27)
 texture = SubResource("PlaceholderTexture2D_ivx7b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=186920738]
