@@ -1,11 +1,12 @@
 extends Area2D
 
-@export var fall_speed: float = 150.0
+@export var fall_speed: float = 350.0 # Faster fall speed for 720p
 
 func _process(delta: float) -> void:
 	position.y += fall_speed * delta
 	
-	if position.y > 200:
+	# Delete if it falls past the bottom of the 720p screen
+	if position.y > 800:
 		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:

@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://dxvydww3eh5b3"]
 
+[ext_resource type="Script" uid="uid://coyxunt15hco7" path="res://scripts/main.gd" id="1_0puxg"]
 [ext_resource type="PackedScene" uid="uid://c4ec5kqk0qeil" path="res://scenes/player.tscn" id="1_1deg0"]
 
 [node name="Node2D" type="Node2D" unique_id=869852116]
+script = ExtResource("1_0puxg")
 
 [node name="Player" parent="." unique_id=248566676 instance=ExtResource("1_1deg0")]
-position = Vector2(150, 158)
+position = Vector2(647, 666)
+
+[node name="Timer" type="Timer" parent="." unique_id=1171251173]
+autostart = true

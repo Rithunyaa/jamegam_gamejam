@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 200.0
+@export var speed: float = 600.0 # Faster movement for a wider screen
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -12,4 +12,5 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	position.x = clamp(position.x, 16, 304)
+	# Clamp player inside the 1280 width (leaving a 50px margin on edges)
+	position.x = clamp(position.x, 50, 1230)
