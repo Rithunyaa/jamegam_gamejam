@@ -1,15 +1,15 @@
 extends Node2D
 
-
 var hazard_scenes = [
-	preload("res://scenes/hazard.tscn"), 
+	preload("res://scenes/hazard.tscn"),  
 	preload("res://scenes/hazard3.tscn"),
 	preload("res://scenes/hazard2.tscn")
 ]
 
 @onready var timer: Timer = $Timer
-@onready var game_over_ui: CanvasLayer = $GameOverUI 
-@onready var camera: Camera2D = $Camera2D 
+@onready var game_over_ui: CanvasLayer = $GameOverUI
+@onready var camera: Camera2D = $Camera2D
+@onready var crunch_sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var survival_time: float = 0.0
 var is_game_over: bool = false
@@ -40,9 +40,15 @@ func trigger_game_over() -> void:
 		return
 	is_game_over = true
 	
+	
 	timer.stop()
 	
+	
+	crunch_sound.play()
+	
+	
 	shake_screen()
+	
 	
 	game_over_ui.trigger_game_over(survival_time)
 
@@ -52,5 +58,5 @@ func shake_screen() -> void:
 	for i in range(8):
 		var random_offset = Vector2(randf_range(-12.0, 12.0), randf_range(-12.0, 12.0))
 		tween.tween_property(camera, "offset", random_offset, 0.03)
-
+	
 	tween.tween_property(camera, "offset", Vector2.ZERO, 0.03)
