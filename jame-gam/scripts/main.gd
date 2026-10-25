@@ -10,12 +10,18 @@ var hazard_scenes = [
 @onready var game_over_ui: CanvasLayer = $GameOverUI
 @onready var camera: Camera2D = $Camera2D
 @onready var crunch_sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var background_music: AudioStreamPlayer2D = $AudioStreamPlayer2D2
+
 
 var survival_time: float = 0.0
 var is_game_over: bool = false
 
 func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
+	
+	
+	background_music.finished.connect(_on_music_finished)
+	background_music.play()
 
 func _process(delta: float) -> void:
 	if is_game_over:
@@ -40,15 +46,13 @@ func trigger_game_over() -> void:
 		return
 	is_game_over = true
 	
-	
 	timer.stop()
 	
+	background_music.stop()
 	
 	crunch_sound.play()
 	
-	
 	shake_screen()
-	
 	
 	game_over_ui.trigger_game_over(survival_time)
 
@@ -60,3 +64,6 @@ func shake_screen() -> void:
 		tween.tween_property(camera, "offset", random_offset, 0.03)
 	
 	tween.tween_property(camera, "offset", Vector2.ZERO, 0.03)
+
+func _on_music_finished() -> void:
+	background_music.play()
