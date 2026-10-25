@@ -12,4 +12,5 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		print("Squashed!")
-		get_tree().reload_current_scene()
+		# Safely reload the scene after the physics step finishes
+		get_tree().call_deferred("reload_current_scene")

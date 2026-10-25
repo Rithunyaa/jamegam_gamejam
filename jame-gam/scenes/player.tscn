@@ -6,8 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cugwoxvlle1dy" path="res://assets/Walk_right2.png" id="4_fjrip"]
 [ext_resource type="Texture2D" uid="uid://bimmy1nvadm4b" path="res://assets/Walk_right3.png" id="5_smehm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_ur7pv"]
 animations = [{
 "frames": [{
@@ -39,10 +37,9 @@ animations = [{
 [node name="Player" type="CharacterBody2D" unique_id=248566676]
 script = ExtResource("1_3vyb7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2075189410]
-shape = SubResource("RectangleShape2D_qhqgy")
-debug_color = Color(1, 0.011764706, 0, 0.41960785)
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1830106573]
+polygon = PackedVector2Array(-14, -44, 17, -39, 39, -30, 50, -18, 59, -3, 61, 14, 56, 28, 42, 37, 16, 41, -16, 37, -39, 33, -55, 25, -63, 10, -59, -8, -47, -23, -31, -36)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1360393235]
 sprite_frames = SubResource("SpriteFrames_ur7pv")
-frame_progress = 0.14040989
+frame_progress = 0.10610219
