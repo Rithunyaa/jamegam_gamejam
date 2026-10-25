@@ -1,18 +1,48 @@
 [gd_scene format=3 uid="uid://c4ec5kqk0qeil"]
 
 [ext_resource type="Script" uid="uid://maklt32k5g3j" path="res://scripts/player.gd" id="1_3vyb7"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g2els"]
+[ext_resource type="Texture2D" uid="uid://cyksyugoi73d" path="res://assets/default_lg.png" id="2_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://bel007hdegfym" path="res://assets/walk_right1.png" id="3_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://cugwoxvlle1dy" path="res://assets/Walk_right2.png" id="4_fjrip"]
+[ext_resource type="Texture2D" uid="uid://bimmy1nvadm4b" path="res://assets/Walk_right3.png" id="5_smehm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ur7pv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qlg0r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tuyoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fjrip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tuyoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_smehm")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" unique_id=248566676]
 script = ExtResource("1_3vyb7")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=89754464]
-scale = Vector2(20, 20)
-texture = SubResource("PlaceholderTexture2D_g2els")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2075189410]
 shape = SubResource("RectangleShape2D_qhqgy")
 debug_color = Color(1, 0.011764706, 0, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1360393235]
+sprite_frames = SubResource("SpriteFrames_ur7pv")
+frame_progress = 0.14040989
