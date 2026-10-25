@@ -92,3 +92,6 @@ offset_top = 706.0
 offset_right = 1303.0
 offset_bottom = 744.0
 color = Color(0.3235107, 0.18813938, 0.16055954, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=442382904]
+position = Vector2(640, 360)
