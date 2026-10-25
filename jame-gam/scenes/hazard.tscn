@@ -1,22 +1,16 @@
 [gd_scene format=3 uid="uid://bm4w67p7sd2mf"]
 
 [ext_resource type="Script" uid="uid://cd6mbjs2dmrow" path="res://scripts/hazard.gd" id="1_rxmjj"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ivx7b"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxmjj"]
-size = Vector2(28, 27)
+[ext_resource type="Texture2D" uid="uid://cp7tb72he5e1k" path="res://assets/hazard_1.png" id="2_awlwb"]
 
 [node name="Hazard" type="Area2D" unique_id=1007481497]
 script = ExtResource("1_rxmjj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1518173478]
 position = Vector2(1.4305115e-06, 0.49999976)
-scale = Vector2(28, 27)
-texture = SubResource("PlaceholderTexture2D_ivx7b")
+texture = ExtResource("2_awlwb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=186920738]
-shape = SubResource("RectangleShape2D_rxmjj")
-debug_color = Color(0, 0, 1, 0.41960785)
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=277430987]
+polygon = PackedVector2Array(-13, -23, 1, -23, 12, -15, 26, -17, 36, -27, 52, -23, 57, -10, 51, 6, 40, 10, 32, -1, 14, 10, 10, 25, -8, 29, -20, 22, -23, 8, -53, 14, -24, 4, -24, -11)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

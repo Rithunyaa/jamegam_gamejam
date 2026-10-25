@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://skeph1n5s0t0"]
+
+[ext_resource type="Script" uid="uid://cd6mbjs2dmrow" path="res://scripts/hazard.gd" id="1_ofq1x"]
+[ext_resource type="Texture2D" uid="uid://cp1guj5cku2cc" path="res://assets/hazard_2.png" id="2_ya4nj"]
+
+[node name="Hazard" type="Area2D" unique_id=1007481497]
+script = ExtResource("1_ofq1x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1518173478]
+position = Vector2(1.4305115e-06, 0.49999976)
+texture = ExtResource("2_ya4nj")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=658727734]
+polygon = PackedVector2Array(-10, -22, 3, -42, 6, -55, 22, -55, 43, -45, 46, -35, 39, -27, 29, -22, 19, -5, 22, 14, 14, 26, -7, 27, -16, 24, -38, 56, -20, 19, -30, 13, -35, -3, -26, -14)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,6 +1,11 @@
 extends Node2D
 
-var hazard_scene = preload("res://scenes/hazard.tscn")
+# Array of your hazard scene versions so it can randomize between them
+var hazard_scenes = [
+	preload("res://scenes/hazard.tscn"),  # Your first hazard (e.g., pushpin)
+	preload("res://scenes/hazard2.tscn") # Make sure this matches your second hazard scene file path
+]
+
 @onready var timer: Timer = $Timer
 @onready var game_over_ui: CanvasLayer = $GameOverUI # Make sure node name matches
 
@@ -18,7 +23,10 @@ func _process(delta: float) -> void:
 	timer.wait_time = max(0.3, 1.2 - (survival_time * 0.02))
 
 func _on_timer_timeout() -> void:
-	var hazard = hazard_scene.instantiate()
+	# Randomly pick one of the hazard scenes from the array
+	var random_hazard_scene = hazard_scenes.pick_random()
+	var hazard = random_hazard_scene.instantiate()
+	
 	var speed_multiplier = 1.0 + (survival_time * 0.04)
 	hazard.fall_speed *= speed_multiplier
 	
