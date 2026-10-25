@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://c4ec5kqk0qeil" path="res://scenes/player.tscn" id="1_1deg0"]
 [ext_resource type="Script" uid="uid://daoo6kqn641ek" path="res://scripts/game_over_ui.gd" id="3_b8uj7"]
 [ext_resource type="FontFile" uid="uid://dwgmrujiub8vb" path="res://assets/augiepixel.ttf" id="4_asbcj"]
-[ext_resource type="Texture2D" uid="uid://b3qlqisngmfdy" path="res://assets/livingroom_background.png" id="5_k3crt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_asbcj"]
 
@@ -22,7 +21,6 @@ position = Vector2(643, 655)
 autostart = true
 
 [node name="GameOverUI" type="CanvasLayer" parent="." unique_id=1863000485]
-visible = false
 script = ExtResource("3_b8uj7")
 
 [node name="ColorRect" type="ColorRect" parent="GameOverUI" unique_id=1018493982]
@@ -82,23 +80,15 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_l0ncr")
 text = "try again"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1284341557]
-visible = false
 show_behind_parent = true
 offset_left = -142.0
 offset_top = -16.0
 offset_right = 1321.0
 offset_bottom = 730.0
-color = Color(0.6431373, 0.78431374, 0.62352943, 1)
+color = Color(0.9469456, 0.89748925, 0.91773915, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=457097919]
-visible = false
 offset_top = 706.0
 offset_right = 1303.0
 offset_bottom = 744.0
 color = Color(0.3235107, 0.18813938, 0.16055954, 1)
-
-[node name="LivingroomBackground" type="Sprite2D" parent="." unique_id=2117794879]
-show_behind_parent = true
-position = Vector2(635, 353)
-scale = Vector2(9, 9)
-texture = ExtResource("5_k3crt")

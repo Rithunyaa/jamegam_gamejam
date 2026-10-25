@@ -3,8 +3,9 @@ extends Node2D
 # Array of your hazard scene versions so it can randomize between them
 var hazard_scenes = [
 	preload("res://scenes/hazard.tscn"),  # Your first hazard (e.g., pushpin)
-	preload("res://scenes/hazard2.tscn") # Make sure this matches your second hazard scene file path
-]
+	preload("res://scenes/hazard3.tscn"),
+	preload("res://scenes/hazard2.tscn")
+	]
 
 @onready var timer: Timer = $Timer
 @onready var game_over_ui: CanvasLayer = $GameOverUI # Make sure node name matches
